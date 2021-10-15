@@ -27,6 +27,21 @@ public class Enemy_5 : Enemy
         p0.x = Random.Range(-widMinRad, widMinRad);
         GameObject player = GameObject.FindGameObjectWithTag("Hero");
         p1 = player.transform.position;
+        float angle = 0;
+        
+        //turn angle to player
+        if (p1.x < 0)
+        {
+            angle = Mathf.Atan2(-p1.x, p0.y-p1.y) * Mathf.Rad2Deg - 90f;
+            angle *= -1;
+            angle -= 90;
+        }
+        else
+        {
+            angle = Mathf.Atan2(p1.x, p0.y - p1.y) * Mathf.Rad2Deg - 90f;
+            angle += 90;
+        }
+        this.transform.eulerAngles = new Vector3(0, 0, 180+angle);
         birthTime = Time.time;
     }
 
@@ -49,6 +64,7 @@ public class Enemy_5 : Enemy
 
         // Interpolate the two linear interpolation points
         pos = ((1 - u) * p0) + (u * p1);
+
 
     }
 }
