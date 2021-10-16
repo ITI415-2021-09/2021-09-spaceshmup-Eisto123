@@ -132,6 +132,33 @@ public class Weapon : MonoBehaviour {
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                p = MakeProjectile(); // Make left Projectile
+                p.transform.rotation = Quaternion.AngleAxis(20, Vector3.back);
+                p.rigid.velocity = p.transform.rotation * vel;
+                p = MakeProjectile(); // Make left Projectile
+                p.transform.rotation = Quaternion.AngleAxis(-20, Vector3.back);
+                p.rigid.velocity = p.transform.rotation * vel;
+                break;
+
+            case WeaponType.missile:
+                p = MakeProjectile();
+                GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+                Vector3 tPos = enemy.transform.position;
+                float angle = 0;
+                //turn angle to enemy
+                if (tPos.x < 0)
+                {
+                    angle = Mathf.Atan2(-tPos.x, p.transform.position.y + tPos.y) * Mathf.Rad2Deg - 90f;
+                    angle *= -1;
+                }
+                else
+                {
+                    angle = Mathf.Atan2(tPos.x, p.transform.position.y + tPos.y) * Mathf.Rad2Deg - 90f;
+                }
+
+                p.transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
+                p.rigid.velocity = p.transform.rotation* vel;
+
                 break;
 
         }

@@ -374,10 +374,10 @@ MonoBehaviour:
     projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
       type: 3}
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 1
+    damageOnHit: 0.6
     continuousDamage: 0
-    delayBetweenShots: 0.2
-    velocity: 50
+    delayBetweenShots: 0.15
+    velocity: 60
     phaserWaveFrequency: 2
   - type: 2
     letter: S
@@ -387,7 +387,7 @@ MonoBehaviour:
     projectileColor: {r: 0, g: 0.654902, b: 1, a: 1}
     damageOnHit: 1
     continuousDamage: 0
-    delayBetweenShots: 0.4
+    delayBetweenShots: 0.8
     velocity: 50
     phaserWaveFrequency: 2
   - type: 6
@@ -400,20 +400,20 @@ MonoBehaviour:
     delayBetweenShots: 0
     velocity: 0
     phaserWaveFrequency: 2
-  - type: 3
-    letter: O
+  - type: 4
+    letter: M
     color: {r: 1, g: 0.9534184, b: 0, a: 1}
     projectilePrefab: {fileID: 1899541879965282, guid: 59a4640edad59f94a87c1d235355cb6a,
       type: 3}
     projectileColor: {r: 1, g: 0.96657693, b: 0, a: 1}
-    damageOnHit: 0
+    damageOnHit: 5
     continuousDamage: 0
-    delayBetweenShots: 0
-    velocity: 0
+    delayBetweenShots: 1
+    velocity: 50
     phaserWaveFrequency: 2
   prefabPowerUp: {fileID: 1062273549804748, guid: 9649a9a79085a854d9990613a980f435,
     type: 3}
-  powerUpFrequency: 0100000001000000020000000200000006000000
+  powerUpFrequency: 0400000004000000040000000400000006000000
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -912,6 +912,11 @@ PrefabInstance:
     - target: {fileID: 4052337362685714, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114684557380802588, guid: d38b8bdef6bb4724e9a7341bda0aad27,
+        type: 3}
+      propertyPath: def.damageOnHit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
